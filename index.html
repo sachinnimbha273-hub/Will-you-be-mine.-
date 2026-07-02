@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be Mine? ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    overflow:hidden;
+}
+
+.box{
+    text-align:center;
+    color:white;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:40px;
+}
+
+button{
+    padding:15px 35px;
+    font-size:20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#yes{
+    background:#28a745;
+    color:white;
+    margin-right:20px;
+}
+
+#no{
+    background:#dc3545;
+    color:white;
+    position:absolute;
+}
+
+#message{
+    display:none;
+    font-size:34px;
+    margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>Will You Be Mine? ❤️</h1>
+
+    <button id="yes">Yes 💖</button>
+    <button id="no">No 😅</button>
+
+    <div id="message">
+        ❤️ Yay! You Said Yes ❤️
+    </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+
+function moveButton(){
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 60);
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("click", moveButton);
+
+document.getElementById("yes").addEventListener("click", function(){
+    document.querySelector("h1").style.display = "none";
+    document.getElementById("yes").style.display = "none";
+    document.getElementById("no").style.display = "none";
+
+    const msg = document.getElementById("message");
+    msg.style.display = "block";
+    msg.innerHTML = "❤️ Thank You! I Love You ❤️";
+});
+</script>
+
+</body>
+</html>
